@@ -62,8 +62,6 @@ public class CsvHandling {
                             updateDataServer(fileName, clientValues, compteur, values[0]);
                             scanner.close();
                             return true;
-                        }else {
-                            return false;
                         }
 
                         // continue
@@ -73,12 +71,13 @@ public class CsvHandling {
                 }
                 scanner.close();
 
+
             } catch (IOException e){
                 e.printStackTrace();
 
             }
-            return false;
 
+            return false;
 
         }
 

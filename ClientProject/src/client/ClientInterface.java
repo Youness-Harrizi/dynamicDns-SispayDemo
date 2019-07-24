@@ -13,7 +13,7 @@ public interface ClientInterface {
      boolean setChanged();
 
     // main method for initialisation the communication with the server
-     void initClient(int port, InetAddress serverAddress, String password, String domain);
+     void initClient( String domain);
 
 
 

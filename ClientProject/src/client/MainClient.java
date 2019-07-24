@@ -14,17 +14,19 @@ public class MainClient {
     public static int compteur=0;
 
     // to be changed if you want
-    private final static  String domain="domain4";
-    private final static  String password="admin1";
+    private final static  String domain="domain2";
+    private final static  String password="admin2";
+    private final static String serverName="localhost";
+    private final static int serverPort=8888;
     private final static int portsource=2000; // for the NAT protocol
 
 
     public static void main(String[] args) throws java.io.IOException{
 
       while (true){
-          Client client=new Client(5555,InetAddress.getByName("localhost"),password,domain);
-         // System.out.println("I am here");
-          client.initClient(5555,InetAddress.getByName("localhost"),"admin1","domain1");
+          System.out.println("The password is "+password);
+          Client client=new Client(serverPort,InetAddress.getByName(serverName),password,domain);
+          client.initClient(domain);
           // sleep for 1 minute
           try {
               System.out.println("sleeping for 10 seconds");

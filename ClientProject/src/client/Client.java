@@ -47,8 +47,7 @@ public class Client implements ClientInterface {
         this.port = port;
         this.password=password;
 
-
-
+        // used nly for the GUI
         fileDomainMap=new HashMap<>(0);
         for(int i = 1; i< nbreClientsMax +1; i++){
             fileDomainMap.put("domain"+i,"" +"clientLastIp"+i);
@@ -66,7 +65,7 @@ public class Client implements ClientInterface {
 
 
 
-    public void initClient(int port, InetAddress serverAddress, String password, String domain) {
+    public void initClient(String domain) {
         // creating our ssl maker
         SSLSocketFactory sslSocketFactory =(SSLSocketFactory)SSLSocketFactory.getDefault();
         try {
@@ -79,7 +78,7 @@ public class Client implements ClientInterface {
                 System.err.println("The server name that you've put isn't valid");
                 System.exit(0);
             }
-            MessageClient message = new MessageClient(domain, lastIp, ip, lastPort, port, password);
+            MessageClient message = new MessageClient(domain, lastIp, ip, lastPort, this.port,this.password );
             sendAuthentificationMessage(client, message);
             // if connection is not finished send our normal message
              bool = sendMessage(client);
@@ -120,22 +119,15 @@ public class Client implements ClientInterface {
             DataInputStream in = new DataInputStream(socket.getInputStream());
 
             String line="Pas encore";
-            String bufferLine;
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            //BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            int compt=0;
-
-
+            System.out.println("Sleeping for another 10 seconds");
             TimeUnit.SECONDS.sleep(10);
 
             try {
                 while((line = in.readUTF()) != null) {
                     System.out.println(line);
-
-                    //System.out.println("I am in the loop for the "+compt +"time");
-                    compt++;
                 }
-
             }catch (EOFException ex){
                 System.err.println("Fini les commandes");
             }
@@ -173,9 +165,9 @@ public class Client implements ClientInterface {
             BufferedWriter bufferedWriter =new BufferedWriter(fileWriter);
             bufferedWriter.write(this.ip.getHostAddress());
             bufferedWriter.close(); // c'est necessaire (ou on fait du flush pour vider notre buffer)
+            //test test
             String newIp=this.ip.getHostAddress();
             System.out.println(newIp);
-
 
 
         }catch (IOException e) {
@@ -185,13 +177,10 @@ public class Client implements ClientInterface {
     }
 
     public void setParameters(String fileName) throws java.net.UnknownHostException{
-        // to be geneeralized
+        // setting lastIP and IP
         this.lastIp=readLastIp(fileName);
         System.out.println("Last IP is "+ lastIp);
-        this.ip=InetAddress.getLocalHost();
-
-
-
+        this.ip=InetAddress.getLocalHost(); // l'ip publique
     }
 
     private InetAddress readLastIp(String fileName) {
