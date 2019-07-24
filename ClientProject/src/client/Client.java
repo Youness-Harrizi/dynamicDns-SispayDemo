@@ -23,6 +23,7 @@ public class Client implements ClientInterface {
     private Boolean bool=true;
     private String text;
 
+
     public void setText(String text) {
         this.text = text;
     }
@@ -58,8 +59,7 @@ public class Client implements ClientInterface {
             this.bool=false;
         }
         else {
-            this.setParameters("src/client/clients/"+path);
-            //initClient(port, serverAddress, password, domain);
+            this.setParameters("src/client/clients/"+"clientLastIp1");
         }
 
     }
@@ -70,20 +70,17 @@ public class Client implements ClientInterface {
         // creating our ssl maker
         SSLSocketFactory sslSocketFactory =(SSLSocketFactory)SSLSocketFactory.getDefault();
         try {
-
             System.out.println("Connecting to " + serverAddress + " on port " + port);
             // ssl client
             try {
-                // donner l'addresse du serveur 127.0.0.1
                 client = sslSocketFactory.createSocket(serverAddress,port);
             }catch (Exception e){
+                e.printStackTrace();
                 System.err.println("The server name that you've put isn't valid");
                 System.exit(0);
             }
-
             MessageClient message = new MessageClient(domain, lastIp, ip, lastPort, port, password);
             sendAuthentificationMessage(client, message);
-
             // if connection is not finished send our normal message
              bool = sendMessage(client);
             // the lastIp should be the newIp if there was a change after that
@@ -133,9 +130,9 @@ public class Client implements ClientInterface {
 
             try {
                 while((line = in.readUTF()) != null) {
-                    System.out.println("The command from the server is "+line);
+                    System.out.println(line);
 
-                    System.out.println("I am in the loop for the "+compt +"time");
+                    //System.out.println("I am in the loop for the "+compt +"time");
                     compt++;
                 }
 
@@ -167,6 +164,7 @@ public class Client implements ClientInterface {
 
     }
 
+
     private void changeLastIpFile(String fileName) {
         try {
             File file=new File(fileName);
@@ -191,6 +189,8 @@ public class Client implements ClientInterface {
         this.lastIp=readLastIp(fileName);
         System.out.println("Last IP is "+ lastIp);
         this.ip=InetAddress.getLocalHost();
+
+
 
     }
 
@@ -225,6 +225,8 @@ public class Client implements ClientInterface {
     private void sendAuthentificationMessage(Socket client,MessageClient message) {
         // send the ClientMessage type
         try {
+            System.out.println("socket.getLocalPort");
+            System.out.println(client.getLocalPort());
             OutputStream outToServer = client.getOutputStream();
             ObjectOutputStream out = new ObjectOutputStream(outToServer);
             out.writeObject(message);
