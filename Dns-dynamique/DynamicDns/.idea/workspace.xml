@@ -416,7 +416,7 @@
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973357" visible="true" weight="0.17408907" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4973357" visible="true" weight="0.17408907" />
       <window_info id="Structure" order="1" sideWeight="0.50119334" side_tool="true" weight="0.1319838" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -426,7 +426,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.4013267" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.4013267" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

@@ -14,8 +14,8 @@ public class MainClient {
     public static int compteur=0;
 
     // to be changed if you want
-    private final static  String domain="domain2";
-    private final static  String password="admin2";
+    private final static  String domain="domain5";
+    private final static  String password="admin5";
     private final static String serverName="localhost";
     private  static int serverPort;
     private static int localPort;

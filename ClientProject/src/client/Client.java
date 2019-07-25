@@ -49,19 +49,8 @@ public class Client implements ClientInterface {
         this.port = port;
         this.password=password;
 
-        // used nly for the GUI
-        fileDomainMap=new HashMap<>(0);
-        for(int i = 1; i< nbreClientsMax +1; i++){
-            fileDomainMap.put("domain"+i,"" +"clientLastIp"+i);
-        }
-        String path=fileDomainMap.get(domain);
-        if(path==null)
-        {
-            this.bool=false;
-        }
-        else {
-            this.setParameters("src/client/clients/"+"clientLastIp1");
-        }
+        this.setParameters("src/client/clients/"+"clientLastIp");
+
 
     }
 
@@ -111,8 +100,7 @@ public class Client implements ClientInterface {
             // on ne change l'ip que si on a recu un message du serveur
             if (setChanged() && bool) {
                 System.out.println("last Ip has changed");
-                System.out.println("The file :"+"src/client/clients/"+fileDomainMap.get(domain));
-                changeLastIpFile("src/client/clients/"+fileDomainMap.get(domain));
+                changeLastIpFile("src/client/clients/clientLastIp");
             }
             if(bool){
                 System.out.println("receiving some commands from THE SERVER LOCALHOST");
