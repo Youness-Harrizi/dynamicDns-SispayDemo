@@ -147,13 +147,11 @@ public class Client implements ClientInterface {
 
                     socket.close();
 
-
-
         }catch (IOException e){
             e.printStackTrace();
         }
     }
-    // for THE GUI
+    // for THE GUI only
     public  void sendSimpleMessages2(Socket socket, String text){
         try {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -237,7 +235,6 @@ public class Client implements ClientInterface {
     // returns true if we have received something from the server
     private Boolean sendMessage(Socket client) throws java.io.IOException{
 
-
         System.out.println("Just connected to " + client.getRemoteSocketAddress());
         OutputStream outToServer = client.getOutputStream();
         DataOutputStream out = new DataOutputStream(outToServer);
@@ -254,11 +251,6 @@ public class Client implements ClientInterface {
             System.out.println("Server says " + in.readUTF());
             // test test
             //sendSimpleMessages(client);
-            /**
-             * The socket is temporarly not closed
-
-             */
-            //client.close();
         }catch(EOFException e){
             System.out.println("The connection is over ....\n retry again ....");
             return false;

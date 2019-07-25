@@ -14,12 +14,13 @@ public class MainClient {
     public static int compteur=0;
 
     // to be changed if you want
-    private final static  String domain="domain5";
-    private final static  String password="admin5";
+    private final static  String domain="domain2";
+    // Hash my password
+
+    private final static  String password=BCryptHashing.hash("admin2");
     private final static String serverName="localhost";
     private  static int serverPort;
     private static int localPort;
-    private final static int portsource=2000; // for the NAT protocol
 
 
     public static void main(String[] args) throws java.io.IOException{
@@ -29,8 +30,7 @@ public class MainClient {
           System.out.println("type the port corresponding to the domainName "+domain+ " : ");
           serverPort=scanner.nextInt();
           System.out.println("type the local port corresponding to the domainName "+domain+ " : ");
-            localPort=scanner.nextInt();
-
+          localPort=scanner.nextInt();
           Client client=new Client(serverPort,InetAddress.getByName(serverName),password,domain);
           client.setlocalPort(localPort);
           client.initClient(domain);

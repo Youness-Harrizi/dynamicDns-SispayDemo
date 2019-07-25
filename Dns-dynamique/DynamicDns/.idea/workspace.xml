@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06aa4e3e-1597-4273-9d63-3ffcddf973d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/server/BCrypt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/DynamicDns_jar/DynamicDns.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DynamicDns_jar/DynamicDns.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/client/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/MainClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/client/MainClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/MessageClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/client/MessageClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/clients/clientLastIp2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/clients/clientLastIp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/client/clients/clientLastIp4" beforeDir="false" />
@@ -17,13 +19,16 @@
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/server/CsvHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/server/CsvHandling.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/server/MainServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/server/MainServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DynamicDns/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DynamicDns/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/MainClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/MessageClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/MessageClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/clients/clientLastIp2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/clients/clientLastIp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/clients/clientLastIp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/clients/clientLastIp5" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/guiClient/GUIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/guiClient/GUIMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/MainServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/MainServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,11 +48,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1831">
-              <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            <state relative-caret-position="51">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/BCrypt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#31831#31832#0" expanded="true" />
+                <element signature="e#31893#31894#0" expanded="true" />
+                <element signature="e#32135#32136#0" expanded="true" />
+                <element signature="e#32194#32195#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/BCryptHashing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -65,22 +95,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/guiClient/MyFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+            <state relative-caret-position="178">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/CsvHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="49" column="106" selection-start-line="49" selection-start-column="106" selection-end-line="49" selection-end-column="106" />
+            <state relative-caret-position="241">
+              <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,17 +161,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/data.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/clients/clientPort">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-start-column="4" selection-end-column="4" />
+            <state relative-caret-position="17">
+              <caret line="1" column="108" lean-forward="true" selection-start-line="1" selection-start-column="108" selection-end-line="1" selection-end-column="108" />
             </state>
           </provider>
         </entry>
@@ -169,9 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>valid</find>
-      <find>passw</find>
-      <find>closed</find>
       <find>sendSimpleMess</find>
       <find>q</find>
       <find>textin</find>
@@ -195,10 +201,13 @@
       <find>domain2</find>
       <find>CsvHan</find>
       <find>localPort</find>
-      <find>localPo</find>
       <find>local</find>
       <find>lastPort</find>
       <find>lastPort</find>
+      <find>localPo</find>
+      <find>5002</find>
+      <find>domain1</find>
+      <find>p</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -235,8 +244,10 @@
         <option value="$PROJECT_DIR$/src/server/MainServer.java" />
         <option value="$PROJECT_DIR$/src/server/Server.java" />
         <option value="$PROJECT_DIR$/src/client/Client.java" />
-        <option value="$PROJECT_DIR$/src/server/CsvHandling.java" />
+        <option value="$PROJECT_DIR$/src/server/BCrypt.java" />
+        <option value="$PROJECT_DIR$/src/server/BCryptHashing.java" />
         <option value="$PROJECT_DIR$/src/data.csv" />
+        <option value="$PROJECT_DIR$/src/server/CsvHandling.java" />
       </list>
     </option>
   </component>
@@ -311,9 +322,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainServer">
-    <configuration name="CsvHandling" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.CsvHandling" />
+    <configuration name="BCryptHashing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.BCryptHashing" />
       <module name="DynamicDns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -374,19 +391,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CsvHandling" />
       <item itemvalue="Application.GUIMain" />
       <item itemvalue="Application.MainClient" />
       <item itemvalue="Application.MainServer" />
       <item itemvalue="Application.TextingFrame" />
+      <item itemvalue="Application.BCryptHashing" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainServer" />
+        <item itemvalue="Application.BCryptHashing" />
         <item itemvalue="Application.GUIMain" />
         <item itemvalue="Application.MainClient" />
         <item itemvalue="Application.TextingFrame" />
-        <item itemvalue="Application.CsvHandling" />
       </list>
     </recent_temporary>
   </component>
@@ -426,7 +443,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.4013267" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.33996683" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -445,7 +462,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973357" visible="true" weight="0.16437247" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4973357" visible="true" weight="0.17408907" />
       <window_info id="Structure" order="1" sideWeight="0.50119334" side_tool="true" weight="0.1319838" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -455,7 +472,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.19402985" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.33996683" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -635,26 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1831">
-          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/MainServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1114">
@@ -665,10 +662,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/BCryptHashing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/MainServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/BCrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#31831#31832#0" expanded="true" />
+            <element signature="e#31893#31894#0" expanded="true" />
+            <element signature="e#32135#32136#0" expanded="true" />
+            <element signature="e#32194#32195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/CsvHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="49" column="106" selection-start-line="49" selection-start-column="106" selection-end-line="49" selection-end-column="106" />
+        <state relative-caret-position="241">
+          <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -677,8 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        <state relative-caret-position="17">
+          <caret line="1" column="108" lean-forward="true" selection-start-line="1" selection-start-column="108" selection-end-line="1" selection-end-column="108" />
         </state>
       </provider>
     </entry>
