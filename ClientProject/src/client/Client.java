@@ -24,7 +24,7 @@ public class Client implements ClientInterface {
     private  HashMap<String,String> fileDomainMap;
     private Boolean bool=true;
     private String text;
-    private int lastPort=5005; // to be modified once needed
+    // to be modified once needed
 
     public void setText(String text) {
         this.text = text;
@@ -75,7 +75,6 @@ public class Client implements ClientInterface {
     }
 
     public void initClient(String domain) {
-        // creating our ssl maker from our cacerts file (default)
 
         SSLSocketFactory sslSocketFactory =(SSLSocketFactory)SSLSocketFactory.getDefault();
         try {
@@ -89,7 +88,7 @@ public class Client implements ClientInterface {
                  *                   int localPort)
                  */
                 // the local port is 5000 to be modified
-                client = sslSocketFactory.createSocket(serverAddress,port,serverAddress,lastPort);
+                client = sslSocketFactory.createSocket(serverAddress,port,serverAddress,localPort);
                 System.out.println("The local port is :"+client.getLocalPort());
                 setlocalPort(client.getLocalPort());
 
