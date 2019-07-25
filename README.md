@@ -19,3 +19,10 @@
 2. modifier les ports (MainServer) si besoin
 3. modifier les paramètres du client si besoin dansMainClient qui se trouve dans ClientProject
 4. dans ClientProject lancer le client MainClient avec les arguments -Djavax.net.ssl.trustStore=src/client/examplestore -Djavax.net.ssl.trustStorePassword=password
+
+
+### Remarques:
+
+* il se peut qu'on ait besoin de port forwarding: dans ce cas
+  - on doit modifier le localPort dans la classe Client (500X par défaut)
+  - configurer le routeur de tel sorte que tous les paquets avec un port local de 5000 est redirigé vers le serveur en question

@@ -25,13 +25,13 @@ public class CsvHandling {
 
                     // let's compare the client values with the file values in terms of password and domain names
                     /*
-                    0:domain ,1:lastPort,2:port, 3:lastIp , 4:ip , 5:password
+                    0:domain ,1:localPort,2:port, 3:lastIp , 4:ip , 5:password
 */
                     System.out.println("les domaines sont \n");
                     System.out.println(""+values[0]+"  :  "+clientValues[0]);
-                    System.out.println("les lastPorts(échangeable avec interne port) 1 sont \n");
+                    System.out.println("les localPorts 1 sont \n");
                     System.out.println(""+values[1]+"  :  "+clientValues[1]);
-                    System.out.println("les ports serveurs sont \n");
+                    System.out.println("les ports serveurs 2 sont \n");
                     System.out.println(""+values[2]+"  :  "+clientValues[2]);
                     System.out.println("les lastIps sont \n");
                     System.out.println(""+values[3]+"  :  "+clientValues[3]);
@@ -40,16 +40,15 @@ public class CsvHandling {
                     System.out.println("les passwords sont \n");
                     System.out.println(""+values[5]+"  :  "+clientValues[5]);
                     // condition nécessaire: même domaine, password , et port serveur
-                    if (values[0].equals(clientValues[0])&& values[5].equals(clientValues[5])&& values[2].equals(clientValues[2])) {
+                    if (values[0].equals(clientValues[0])&& values[5].equals(clientValues[5])
+                            && values[2].equals(clientValues[2]) ) {
                         System.out.println("the domain and the password match\n");
                         // now let's compare the ips
                         if (values[4].equals(clientValues[4])) {
                             System.out.println("ip didn't change");
                             scanner.close();
-                            // if LastIP of data.csv isn't equal to lastIP of the client
-                            // it's not important but just for form
-
-                            if(!values[3].equals(clientValues[3])){
+                            // if LastIP of data.csv isn't equal to lastIP of the client or the local port
+                            if(!values[3].equals(clientValues[3])||!values[1].equals(clientValues[1])){
                                 System.out.println("We should update the Last Ip\n");
                                 updateDataServer(fileName, clientValues, compteur, values[0]);
                             }
@@ -87,13 +86,13 @@ public class CsvHandling {
     }
 
 
-    private static void saveRecord(String domainName, int lastPort, int port, InetAddress lastIp, InetAddress ip, String password, String fileName){
+    private static void saveRecord(String domainName, int localPort, int port, InetAddress lastIp, InetAddress ip, String password, String fileName){
 
             try {
                 // the second parameter is the boolean append
                 FileWriter fileWriter=new FileWriter(fileName,true);
                 BufferedWriter bufferedWriter =new BufferedWriter(fileWriter);
-                bufferedWriter.write("\n"+domainName+","+lastPort+","+port+","+lastIp.getHostAddress()+","+ip.getHostAddress()+","+password+"\n");
+                bufferedWriter.write("\n"+domainName+","+localPort+","+port+","+lastIp.getHostAddress()+","+ip.getHostAddress()+","+password+"\n");
                 // make sure that all the data are written to the file
                 bufferedWriter.flush();
                 // close the stream

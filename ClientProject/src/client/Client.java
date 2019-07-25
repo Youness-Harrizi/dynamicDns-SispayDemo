@@ -3,8 +3,10 @@ package client;
 import client.guiClient.TextingFrame;
 import org.omg.CORBA.TRANSACTION_MODE;
 
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
+import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
@@ -15,14 +17,14 @@ import java.util.concurrent.TimeUnit;
 public class Client implements ClientInterface {
     private InetAddress lastIp;
     private InetAddress ip;
-    private int lastPort;
+    private int localPort;
     private int port;
     private String password;
     private  Socket client;
     private  HashMap<String,String> fileDomainMap;
     private Boolean bool=true;
     private String text;
-
+    private int lastPort=5005; // to be modified once needed
 
     public void setText(String text) {
         this.text = text;
@@ -43,7 +45,7 @@ public class Client implements ClientInterface {
     public Client(int port, InetAddress serverAddress,String password,String domain) throws IOException {
 
         this.serverAddress = serverAddress;
-        this.lastPort=port;
+        this.localPort=port; // initialiser le port client
         this.port = port;
         this.password=password;
 
@@ -64,21 +66,45 @@ public class Client implements ClientInterface {
     }
 
 
+    public int getlocalPort() {
+        return localPort;
+    }
+
+    public void setlocalPort(int localPort) {
+        this.localPort = localPort;
+    }
 
     public void initClient(String domain) {
-        // creating our ssl maker
+        // creating our ssl maker from our cacerts file (default)
+
         SSLSocketFactory sslSocketFactory =(SSLSocketFactory)SSLSocketFactory.getDefault();
         try {
             System.out.println("Connecting to " + serverAddress + " on port " + port);
             // ssl client
             try {
-                client = sslSocketFactory.createSocket(serverAddress,port);
-            }catch (Exception e){
-                e.printStackTrace();
-                System.err.println("The server name that you've put isn't valid");
-                System.exit(0);
+                /**
+                 * public abstract Socket createSocket(String host/InetAddress host,
+                 *                   int port,
+                 *                   InetAddress localHost,
+                 *                   int localPort)
+                 */
+                // the local port is 5000 to be modified
+                client = sslSocketFactory.createSocket(serverAddress,port,serverAddress,lastPort);
+                System.out.println("The local port is :"+client.getLocalPort());
+                setlocalPort(client.getLocalPort());
+
             }
-            MessageClient message = new MessageClient(domain, lastIp, ip, lastPort, this.port,this.password );
+            catch (IllegalArgumentException e){
+                e.printStackTrace();
+                System.err.println("The port that you've put is out of range");
+                System.exit(0);
+            }catch (ConnectException e){
+                System.out.println("The port that you've put isn't valid");
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            MessageClient message = new MessageClient(domain, lastIp, ip, localPort, this.port,this.password );
             sendAuthentificationMessage(client, message);
             // if connection is not finished send our normal message
              bool = sendMessage(client);
@@ -207,15 +233,13 @@ public class Client implements ClientInterface {
 
     public boolean setChanged() {
 
-        return (lastPort != port || lastIp != ip);
+        return ( lastIp != ip);
     }
 
 
     private void sendAuthentificationMessage(Socket client,MessageClient message) {
         // send the ClientMessage type
         try {
-            System.out.println("socket.getLocalPort");
-            System.out.println(client.getLocalPort());
             OutputStream outToServer = client.getOutputStream();
             ObjectOutputStream out = new ObjectOutputStream(outToServer);
             out.writeObject(message);
@@ -225,6 +249,7 @@ public class Client implements ClientInterface {
     }
     // returns true if we have received something from the server
     private Boolean sendMessage(Socket client) throws java.io.IOException{
+
 
         System.out.println("Just connected to " + client.getRemoteSocketAddress());
         OutputStream outToServer = client.getOutputStream();

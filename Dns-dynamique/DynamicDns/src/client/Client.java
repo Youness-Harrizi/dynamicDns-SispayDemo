@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Client {
     private InetAddress lastIp;
     private InetAddress ip;
-    private int lastPort;
+    private int localPort;
     private int port;
     private String password;
     private  Socket client;
@@ -40,7 +40,7 @@ public class Client {
     public Client(int port, InetAddress serverAddress,String password,String domain) throws IOException {
 
         this.serverAddress = serverAddress;
-        this.lastPort=port;
+        this.localPort=port;
         this.port = port;
         this.password=password;
 
@@ -80,7 +80,7 @@ public class Client {
                 System.exit(0);
             }
 
-            MessageClient message = new MessageClient(domain, lastIp, ip, lastPort, port, password);
+            MessageClient message = new MessageClient(domain, lastIp, ip, localPort, port, password);
             sendAuthentificationMessage(client, message);
 
             // if connection is not finished send our normal message
@@ -207,7 +207,7 @@ public class Client {
     // this will return true if a certain parameter has been changed
     public boolean setChanged() {
 
-        return (lastPort != port || lastIp != ip);
+        return (localPort != port || lastIp != ip);
     }
 
 

@@ -41,7 +41,8 @@ public class Server extends Thread{
                 ObjectInputStream objectStream=new ObjectInputStream(server.getInputStream());
                 MessageClient messageClient=(MessageClient)objectStream.readObject();
 
-                String[] clientValues={messageClient.getDomain(),""+messageClient.getLastPort(),
+                // localPort =localPort
+                String[] clientValues={messageClient.getDomain(),""+messageClient.getlocalPort(),
                        ""+ messageClient.getPort(),messageClient.getLastIp().getHostAddress(),
                         messageClient.getIp().getHostAddress(),messageClient.getPassword()};
 

@@ -17,15 +17,22 @@ public class MainClient {
     private final static  String domain="domain2";
     private final static  String password="admin2";
     private final static String serverName="localhost";
-    private final static int serverPort=8888;
+    private  static int serverPort;
+    private static int localPort;
     private final static int portsource=2000; // for the NAT protocol
 
 
     public static void main(String[] args) throws java.io.IOException{
 
       while (true){
-          System.out.println("The password is "+password);
+          Scanner scanner=new Scanner(System.in);
+          System.out.println("type the port corresponding to the domainName "+domain+ " : ");
+          serverPort=scanner.nextInt();
+          System.out.println("type the local port corresponding to the domainName "+domain+ " : ");
+            localPort=scanner.nextInt();
+
           Client client=new Client(serverPort,InetAddress.getByName(serverName),password,domain);
+          client.setlocalPort(localPort);
           client.initClient(domain);
           // sleep for 1 minute
           try {
